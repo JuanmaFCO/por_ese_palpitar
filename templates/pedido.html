@@ -1,0 +1,50 @@
+<!-- templates/pedido.html -->
+<!-- Formulario que envía correo y ofrece botón de WhatsApp -->
+
+{% extends "base.html" %}
+{% block content %}
+<h2 class="section-title mb-4">Hacer un pedido</h2>
+
+<div class="row">
+  <div class="col-lg-8">
+    <!-- action apunta a la misma ruta '/pedido' y method POST para enviar datos -->
+    <form action="{{ url_for('pedido') }}" method="post" class="card p-4 shadow-sm">
+      <div class="mb-3">
+        <label class="form-label">Nombre completo</label>
+        <input type="text" name="nombre" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Teléfono</label>
+        <input type="tel" name="telefono" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Dirección</label>
+        <input type="text" name="direccion" class="form-control">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Items (describí lo que necesitás)</label>
+        <textarea name="items" rows="4" class="form-control" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Notas adicionales</label>
+        <textarea name="nota" rows="3" class="form-control"></textarea>
+      </div>
+      <div class="d-flex gap-2">
+        <!-- Botón que envía al servidor (correo) -->
+        <button type="submit" class="btn btn-primary">Enviar pedido</button>
+        <!-- Botón que abre WhatsApp con texto prellenado y tu número -->
+        <a href="https://wa.me/{{ BUSINESS_WHATSAPP }}?text=Hola%20quiero%20hacer%20un%20pedido" target="_blank" class="btn btn-accent">Pedir por WhatsApp</a>
+      </div>
+    </form>
+  </div>
+
+  <!-- Caja lateral con llamada a WhatsApp -->
+  <div class="col-lg-4">
+    <div class="card p-4 bg-lightbrown shadow-sm">
+      <h5 class="fw-bold mb-2">¿Preferís hablar?</h5>
+      <p class="mb-3">También podés escribirnos por WhatsApp y te respondemos al instante.</p>
+      <a href="https://wa.me/{{ BUSINESS_WHATSAPP }}" target="_blank" class="btn btn-outline-accent">Abrir WhatsApp</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,162 @@
+/* static/css/style.css */
+/* Colores: naranja (#FF6A00), amarillo (#FFD54F), marrón claro (#D2B48C) */
+/* Ajustá los hex si querés tonos específicos */
+
+:root{
+  --orange: #FF6A00;
+  --yellow: #FFD54F;
+  --lightbrown: #D2B48C;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --dark: #0b1220;
+}
+
+* { box-sizing: border-box; }
+body{
+  font-family: Inter, system-ui, -apple-system, Arial, sans-serif;
+  color: var(--text);
+  background: #fff;
+}
+
+/* Header con fondo marrón claro translúcido */
+.navbar-light.bg-lightbrown{
+  background-color: rgba(210,180,140,0.25) !important;
+  backdrop-filter: saturate(120%) blur(6px);
+}
+.brand-title { color: var(--dark); }
+
+.nav-link { font-weight: 600; }
+.nav-link:hover { color: var(--orange) !important; }
+
+/* Botón principal en naranja */
+.btn-primary{
+  background-color: var(--orange);
+  border-color: var(--orange);
+}
+.btn-primary:hover{
+  background-color: #e25f00;
+  border-color: #e25f00;
+}
+
+/* Botón acento en amarillo */
+.btn-accent{
+  background-color: var(--yellow);
+  color: #3b3b3b;
+  border: none;
+  font-weight: 700;
+}
+.btn-accent:hover{ filter: brightness(0.95); }
+
+/* Botón borde naranja */
+.btn-outline-primary{
+  color: var(--orange);
+  border-color: var(--orange);
+}
+.btn-outline-primary:hover{
+  background-color: var(--orange);
+  color: #fff;
+}
+
+/* Botón borde amarillo */
+.btn-outline-accent{
+  color: #7a4e00;
+  border-color: var(--yellow);
+}
+.btn-outline-accent:hover{
+  background: var(--yellow);
+  color: #3b3b3b;
+}
+
+/* Hero con degradado naranja/amarillo y borde marrón claro */
+.hero{
+  background: linear-gradient(100deg, rgba(255,106,0,0.10), rgba(255,213,79,0.10));
+  border: 1px solid rgba(210,180,140,0.4);
+  padding: 2.5rem;
+  border-radius: .75rem;
+}
+.hero-media img{ object-fit: cover; width: 100%; }
+
+/* Títulos de sección con línea naranja */
+.section-title{
+  font-weight: 800;
+  border-left: 6px solid var(--orange);
+  padding-left: .5rem;
+}
+
+/* Cards para imágenes/videos */
+.card-media{
+  border: none;
+  overflow: hidden;
+  border-radius: .5rem;
+}
+.card-media img{
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+.card-media video{
+  height: auto;
+}
+
+/* Footer oscuro */
+.footer{
+  background: #2b2b2b;
+  color: #e5e7eb;
+}
+
+/* Fondo de caja auxiliar en pedido */
+.bg-lightbrown{
+  background-color: rgba(210,180,140,0.25);
+}
+
+/* Animación ligera en íconos de redes */
+.social-link img{
+  transition: transform .15s ease;
+}
+.social-link:hover img{
+  transform: scale(1.06);
+}
+
+/* Mensajes flash */
+.alert-success{
+  background-color: rgba(64,160,43,0.12);
+  border-color: rgba(64,160,43,0.35);
+  color: #275c1d;
+}
+.alert-danger{
+  background-color: rgba(200,53,69,0.12);
+  border-color: rgba(200,53,69,0.35);
+  color: #7a1b25;
+}
+
+/* Banner CTA */
+.cta-banner{
+  background: linear-gradient(90deg, rgba(255,106,0,0.08), rgba(210,180,140,0.12));
+  border: 1px solid rgba(210,180,140,0.4);
+  padding: 1.25rem 1rem;
+  border-radius: .5rem;
+}
+
+/* ... aquí están tus estilos anteriores ... */
+
+/* Ajusta el tamaño de las imágenes del carrusel */
+.carousel-item img {
+  height: 400px;        /* podés cambiar a 300px si querés más chico */
+  object-fit: cover;    /* recorta la imagen para que encaje sin deformarse */
+}
+
+/* Opcional: en pantallas chicas (celular) aún más bajo */
+@media (max-width: 768px) {
+  .carousel-item img {
+    height: 250px;
+  }
+}
+
+/*los íconos cambien de color al pasar el mouse*/
+.social-link img {
+  transition: transform .2s ease, filter .2s ease;
+}
+.social-link:hover img {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}

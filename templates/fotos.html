@@ -1,0 +1,16 @@
+<!-- templates/fotos.html -->
+<!-- Muestra 5 fotos pasadas desde app.py -->
+
+{% extends "base.html" %}
+{% block content %}
+<h2 class="section-title mb-4">Fotos</h2>
+<div class="row g-4">
+  {% for img in imagenes %}
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card card-media shadow-sm">
+        <img src="{{ url_for('static', filename=img) }}" class="card-img-top" alt="Foto evento">
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

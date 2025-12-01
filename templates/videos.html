@@ -1,0 +1,19 @@
+<!-- templates/videos.html -->
+<!-- Muestra 3 videos con poster opcional -->
+
+{% extends "base.html" %}
+{% block content %}
+<h2 class="section-title mb-4">Videos</h2>
+<div class="row g-4">
+  {% for v in videos %}
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card card-media shadow-sm">
+        <video class="w-100 rounded" controls preload="metadata" poster="{{ url_for('static', filename=v.poster) }}">
+          <source src="{{ url_for('static', filename=v.src) }}" type="video/mp4">
+          Tu navegador no soporta video HTML5.
+        </video>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

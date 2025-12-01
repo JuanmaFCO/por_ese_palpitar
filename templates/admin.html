@@ -1,0 +1,8 @@
+<h2>Usuarios registrados</h2>
+<ul>
+  {% for u in usuarios %}
+    <li>{{ u.nombre }} - {{ u.email }} 
+      <a href="{{ url_for('editar', email=u.email) }}">Editar</a>
+    </li>
+  {% endfor %}
+</ul>

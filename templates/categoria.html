@@ -1,0 +1,32 @@
+<!-- templates/categoria.html -->
+<!-- Filtra por categoría y muestra imágenes/videos definidos en app.py -->
+
+{% extends "base.html" %}
+{% block content %}
+<h2 class="section-title mb-4">Galería: {{ tipo|capitalize }}</h2>
+
+<!-- Grid de imágenes -->
+<div class="row g-4 mb-4">
+  {% for img in imagenes %}
+    <div class="col-6 col-md-4">
+      <div class="card card-media">
+        <img src="{{ url_for('static', filename=img) }}" class="card-img-top" alt="Foto {{ tipo }}">
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+<!-- Grid de videos -->
+<div class="row g-4">
+  {% for v in videos %}
+    <div class="col-12 col-md-6">
+      <div class="card card-media">
+        <video class="w-100 rounded" controls preload="metadata">
+          <source src="{{ url_for('static', filename=v) }}" type="video/mp4">
+          Tu navegador no soporta video HTML5.
+        </video>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

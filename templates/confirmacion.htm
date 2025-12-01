@@ -1,0 +1,14 @@
+<!-- templates/confirmacion.html -->
+<!-- Muestra mensaje de confirmación tras enviar el pedido -->
+
+{% extends "base.html" %}
+{% block content %}
+<div class="card p-5 text-center shadow-sm">
+  <h2 class="mb-3">¡Gracias por tu pedido!</h2>
+  <p>Nos vamos a comunicar con vos a la brevedad para confirmar los detalles.</p>
+  <div class="mt-3">
+    <a href="{{ url_for('index') }}" class="btn btn-primary me-2">Volver al inicio</a>
+    <a href="{{ url_for('fotos') }}" class="btn btn-outline-primary">Ver más trabajos</a>
+  </div>
+</div>
+{% endblock %}

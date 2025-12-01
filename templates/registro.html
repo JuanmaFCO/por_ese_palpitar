@@ -1,0 +1,49 @@
+{% extends "base.html" %}  <!-- Extiende la plantilla base.html para mantener el diseño general -->
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <!-- Card de Bootstrap para darle estilo al formulario -->
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <!-- Título centrado -->
+        <h2 class="card-title text-center mb-4">Registro</h2>
+
+        <!-- Formulario de registro -->
+        <!-- Se conecta a la ruta /registro definida en app.py -->
+        <form action="{{ url_for('registro') }}" method="post">
+          <!-- Campo nombre -->
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre completo</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Juan Pérez" required>
+          </div>
+
+          <!-- Campo email -->
+          <div class="mb-3">
+            <label for="email" class="form-label">Correo electrónico</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="tu@correo.com" required>
+          </div>
+
+          <!-- Campo contraseña -->
+          <div class="mb-3">
+            <label for="password" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="********" required>
+          </div>
+
+          <!-- Botón enviar -->
+          <div class="d-grid">
+            <button type="submit" class="btn btn-primary">Registrarse</button>
+          </div>
+        </form>
+
+        <!-- Link a login -->
+        <!-- Redirige al formulario de login si el usuario ya tiene cuenta -->
+        <p class="text-center mt-3">
+          ¿Ya tenés cuenta?
+          <a href="{{ url_for('login') }}">Ingresá aquí</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

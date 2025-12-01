@@ -1,0 +1,12 @@
+# Ignorar entorno virtual
+venv/
+__pycache__/
+*.pyc
+
+# Ignorar archivo de entorno
+.env
+
+# Ignorar archivos temporales
+*.log
+*.sqlite3
+.DS_Store

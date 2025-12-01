@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}Panel de Administración{% endblock %}
+{% block content %}
+<div class="container">
+  <!-- Título principal -->
+  <h2 class="mb-4 text-center">Panel de Administración</h2>
+
+  <!-- Sección: Crear nuevo usuario -->
+  <div class="card mb-5 shadow-sm">
+    <div class="card-body">
+      <h4 class="card-title mb-3">Crear nuevo usuario</h4>
+      <!-- Formulario para crear usuario -->
+      <form method="POST" action="{{ url_for('admin_dashboard') }}">
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" name="nombre" id="nombre" required>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="email" class="form-label">Correo</label>
+            <input type="email" class="form-control" name="email" id="email" required>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="password" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" name="password" id="password" required>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="rol" class="form-label">Rol</label>
+          <select class="form-select" name="rol" id="rol">
+            <option value="cliente">Cliente</option>
+            <option value="admin">Administrador</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-success">Crear usuario</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Sección: Lista de usuarios -->
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <h4 class="card-title mb-3">Usuarios registrados</h4>
+      <!-- Tabla de usuarios -->
+      <table class="table table-striped">
+        <thead class="table-dark">
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Rol</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for usuario in usuarios %}
+          <tr>
+            <td>{{ usuario.id }}</td>
+            <td>{{ usuario.nombre }}</td>
+            <td>{{ usuario.email }}</td>
+            <td>{{ usuario.rol }}</td>
+            <td>
+              <!-- Botón para eliminar usuario -->
+              <form method="POST" action="{{ url_for('eliminar_usuario', usuario_id=usuario.id) }}" style="display:inline;">
+                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('¿Eliminar este usuario?')">Eliminar</button>
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}
