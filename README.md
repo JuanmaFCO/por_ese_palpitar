@@ -18,5 +18,5 @@ Incluye login, registro, logout y un panel de administración para crear y elimi
 
 ### 1. Clonar el repositorio
 ```bash
-git clone https://github.com/tuusuario/por-ese-palpitar.git
+git clone https://github.com/JuanmaFCO/por-ese-palpitar.git
 cd por-ese-palpitar
